@@ -1,6 +1,6 @@
 import json, re
 arr = json.load(open("conv.data","r"))
-def gettype(x,ac):
+def convert(x,ac):
   x = (re.sub("([0-9.+])([A-Za-z+])","\\1|\\2",x)).split("|")
   y = x[0]
   z = x[1]
@@ -14,4 +14,4 @@ def gettype(x,ac):
       if len(str(str(a).split(".")[1])) < ac:
         a = str(a) + (ac-len(str(str(a).split(".")[1])))*"0"
       print(str(x[0] + x[1]),"=",str(a)+str(arr[iter][1]))
-gettype(input("Input: "),int(input("Accuracy (dp): ")))
+convert(input("Measurement: "),int(input("Accuracy (dp): ")))
